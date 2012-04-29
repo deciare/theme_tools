@@ -1,0 +1,11 @@
+ui_print("My Theme, by Someone");
+show_progress(0.1, 15);
+run_program("/sbin/busybox", "mount", "/system");
+show_progress(0.2, 15);
+package_extract_dir("system", "/system");
+show_progress(0.7, 15);
+set_perm(0, 0, 0644, "/system/framework/framework-res.apk");
+set_perm(0, 0, 0644, "/system/app/SystemUI.apk");
+show_progress(0.9, 15);
+run_program("/sbin/busybox", "umount", "/system");
+ui_print("Done.");
